@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Météo</title>
+</head>
+<body style="font-family: Arial; text-align: center; margin-top: 50px;">
+    <h1>Météo</h1>
+
+    <form method="POST">
+        <input type="text" name="ville" placeholder="Ville" autofocus>
+        <button type="submit">Chercher</button>
+    </form>
+
+    {% if erreur %}
+        <p style="color: red;">{{ erreur }}</p>
+    {% endif %}
+
+    {% if resultat %}
+        <h2>{{ resultat.ville }}</h2>
+        <p>Température: {{ resultat.temperature }} °C</p>
+        <p>Vent: {{ resultat.vent }} km/h</p>
+    {% endif %}
+</body>
+</html>
